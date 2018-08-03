@@ -1,0 +1,43 @@
+<div class="main-menu-item" [ngClass]="{'main-menu-item--root': isRoot}">
+
+ <div class="main-menu-item__container">
+
+   <div class="main-menu-item__root-actions" *ngIf="isRoot" >
+     <button type="button" (click)="openForm()">
+       add new root branch
+     </button>
+   </div>
+
+   <div class="main-menu-item__head" *ngIf="!isRoot">
+     <div class="main-menu-item__name">
+       {{ menuItem?.name }}
+     </div>
+
+     <div class="main-menu-item__actions">
+       <button (click)="openForm()">add child item</button>
+       <button (click)="destroyBranch()">destroy branch</button>
+       <button (click)="toggleNestedBranches()" *ngIf="hasNestedBranches()">toggle visibility</button>
+     </div>
+   </div>
+
+
+    <main-menu-form
+      *ngIf="formIsOpened"
+      [forbiddenValues]="prepareForbiddenValues()"
+      (onComplete)="closeForm()"
+      (onSubmit)="onBranchAdd($event)">
+    </main-menu-form>
+
+
+   <ng-container *ngIf="hasNestedBranches() && isNestedBranchesDisplayed">
+     <main-menu-item
+       [menuItem]="item"
+       (onDestroy)="destroyNestedBranch($event)"
+       *ngFor="let item of menuItem?.children">
+     </main-menu-item>
+   </ng-container>
+ </div>
+
+
+
+</div>

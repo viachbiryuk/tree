@@ -1,0 +1,14 @@
+<div class="main-menu-form">
+  <div class="main-menu-form__form">
+    <form #formEl="ngForm" name="menuBranchForm">
+      <input name="name" [(ngModel)]="form.name" autocomplete="off" />
+      <button type="button" (click)="discardForm(formEl)">discard</button>
+      <button
+        type="button"
+        [disabled]="isFormInvalid()"
+        (click)="submitForm(formEl)">
+        save
+      </button>
+    </form>
+  </div>
+</div>

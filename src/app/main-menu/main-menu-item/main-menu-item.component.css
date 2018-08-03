@@ -1,0 +1,28 @@
+.main-menu-item--root .main-menu-item {
+  padding: .3em .2em .3em 2em;
+}
+
+.main-menu-item__head {
+  display: flex;
+  align-items: center;
+}
+
+.main-menu-item__name {
+  padding: .4em .4em .4em 0;
+}
+
+.main-menu-item__head:hover .main-menu-item__actions{
+  display: block;
+}
+
+.main-menu-item--root > .main-menu-item__head:hover .main-menu-item__actions {
+  display: none;
+}
+
+.main-menu-item__root-actions {
+  padding-bottom: 1.5em;
+}
+
+.main-menu-item__actions {
+  display: none;
+}
