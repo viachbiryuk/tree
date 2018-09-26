@@ -9,6 +9,11 @@ pipeline {
                 sh 'echo "Node.js Rules!"'
             }
         }
+        stage('my-test') {
+            steps {
+                sh 'node test.js'
+            }
+        }
     }
 
     environment {
