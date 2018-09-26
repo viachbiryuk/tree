@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'node test.js'
             }
-        },
+        }
         stage('test') {
             input 'Proceed?'
         }
@@ -51,7 +51,7 @@ pipeline {
             slackSend channel: '#__jenkins',
                       color: 'good',
                       message: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
-          
+
         }
         failure {
             echo '03. This will run only if failed'
