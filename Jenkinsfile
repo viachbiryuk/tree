@@ -17,6 +17,7 @@ pipeline {
              } */
           }
         }
+        
         stage('build') {
             steps {
                 sh 'node --version'
@@ -52,8 +53,8 @@ pipeline {
     }
 
     environment {
-      DISABLE_AUTH = 'true'
-      DB_ENGINE = 'postgres'
+        DISABLE_AUTH = 'true'
+        DB_ENGINE = 'postgres'
     }
 
     post {
