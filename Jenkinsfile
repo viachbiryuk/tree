@@ -30,6 +30,9 @@ pipeline {
             slackSend channel: '#__jenkins',
                       color: 'good',
                       message: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
+            mail to: 'viachbiryuk@gmail.com',
+                 subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Something is wrong with ${env.BUILD_URL}"
         }
         failure {
             echo '03. This will run only if failed'
