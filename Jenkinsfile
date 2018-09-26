@@ -9,9 +9,15 @@ pipeline {
                 sh 'echo "Node.js Rules!"'
             }
         }
-        stage('my-test') {
+        stage('test') {
             steps {
                 sh 'node test.js'
+                input 'Proceed?'
+            }
+        },
+        stage('deploy') {
+            steps {
+                echo '... Deploying, hehe ...'
             }
         }
     }
