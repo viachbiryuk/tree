@@ -7,7 +7,7 @@ pipeline {
             steps {
                 sh 'node --version'
                 sh 'echo "Node.js Rules!"'
-                sh 'npm install'
+                sh 'sudo npm install'
                 sh 'npm run build'
             }
         }
