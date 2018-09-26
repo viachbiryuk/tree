@@ -1,5 +1,7 @@
 pipeline {
+
     agent { docker { image 'node:8' } }
+
     stages {
         stage('build') {
             steps {
@@ -8,6 +10,12 @@ pipeline {
             }
         }
     }
+
+    environment {
+      DISABLE_AUTH = 'true'
+      DB_ENGINE = 'postgres'
+    }
+
     post {
         always {
             echo '01. This will always run'
@@ -26,4 +34,5 @@ pipeline {
             echo 'For example, if the Pipeline was previously failing but is not success'
         }
     }
+
 }
