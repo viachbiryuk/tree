@@ -31,7 +31,7 @@ pipeline {
         }
         stage('test') {
             steps {
-              input 'Proceed?'
+              echo 'test-stage'
             }
         }
         stage('Deploy to Dev') {
