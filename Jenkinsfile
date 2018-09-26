@@ -7,17 +7,31 @@ pipeline {
             steps {
                 sh 'node --version'
                 sh 'echo "Node.js Rules!"'
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
-        stage('test') {
+        stage('lint') {
             steps {
                 sh 'node test.js'
-                input 'Proceed?'
             }
         },
-        stage('deploy') {
+        stage('test') {
+            input 'Proceed?'
+        }
+        stage('Deploy to Dev') {
             steps {
-                echo '... Deploying, hehe ...'
+                echo '... Deploying, to Dev hehe ...'
+            }
+        }
+        stage('Deploy to QA') {
+            steps {
+                echo '... Deploying, to QA hehe ...'
+            }
+        }
+        stage('Deploy to Live') {
+            steps {
+                echo '... Deploying, to Live hehe ...'
             }
         }
     }
