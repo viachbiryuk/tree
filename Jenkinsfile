@@ -17,7 +17,9 @@ pipeline {
             }
         }
         stage('test') {
-            input 'Proceed?'
+            steps {
+              input 'Proceed?'
+            }
         }
         stage('Deploy to Dev') {
             steps {
