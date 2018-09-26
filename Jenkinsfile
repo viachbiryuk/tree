@@ -5,9 +5,11 @@ pipeline {
     stages {
         stage('Install Dependencies') {
           steps {
+             sh "npm install"
+             /*
              withDockerContainer(args: "-u root", image: "${JOB_NAME}") {
                  sh "npm install"
-             }
+             } */
           }
         }
         stage('build') {
