@@ -24,6 +24,7 @@ pipeline {
     post {
         always {
             echo '01. This will always run'
+            deleteDir() /* clean up our workspace */
         }
         success {
             echo '02. This will run only on Success'
