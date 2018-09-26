@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'node --version'
-                sh 'echo 'Node.js Rules!'
+                sh 'echo "Node.js Rules!"'
             }
         }
     }
