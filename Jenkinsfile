@@ -7,5 +7,23 @@ pipeline {
                 sh 'echo 'Node.js Rules!'
             }
         }
-      }
+    }
+    post {
+        always {
+            echo '01. This will always run'
+        }
+        success {
+            echo '02. This will run only on Success'
+        }
+        failure {
+            echo '03. This will run only if failed'
+        }
+        unstable {
+            echo '04. This will run only if the run was marked as unstable'
+        }
+        changed {
+            echo 'This will run only if the state pipeline was changed'
+            echo 'For example, if the Pipeline was previously failing but is not success'
+        }
+    }
 }
