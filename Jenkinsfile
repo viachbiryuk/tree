@@ -65,7 +65,7 @@ pipeline {
 
     post {
         always {
-            echo '01. This will always run'
+            echo '01. This will always run: $(env)'
             /* deleteDir()    clean up our workspace */
         }
         success {
