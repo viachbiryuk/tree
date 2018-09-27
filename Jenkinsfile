@@ -8,14 +8,21 @@ pipeline {
     }
 
     stages {
+
+        stage('Debug') {
+            steps {
+                sh 'id'
+            }
+        }
+
         stage('Install Dependencies') {
-          steps {
-             sh "npm install"
-             /*
-             withDockerContainer(args: "-u root", image: "${JOB_NAME}") {
-                 sh "npm install"
-             } */
-          }
+            steps {
+               sh "npm install"
+               /*
+               withDockerContainer(args: "-u root", image: "${JOB_NAME}") {
+                   sh "npm install"
+               } */
+            }
         }
         stage('build') {
             steps {
@@ -59,7 +66,6 @@ pipeline {
     post {
         always {
             echo '01. This will always run'
-            sh 'id'
             /* deleteDir()    clean up our workspace */
         }
         success {
