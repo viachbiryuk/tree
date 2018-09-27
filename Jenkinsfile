@@ -59,7 +59,7 @@ pipeline {
     post {
         always {
             echo '01. This will always run'
-            id
+            sh 'id'
             /* deleteDir()    clean up our workspace */
         }
         success {
